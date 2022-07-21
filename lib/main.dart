@@ -9,7 +9,9 @@ void main() {
   //this is used to run the application
   //not sure what debugshowcheckedmodebanner is but this sets splashpage to home
   //splashpage will be defined later
-  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: SplashPage()));
+  runApp(MaterialApp(
+      debugShowCheckedModeBanner: false, home: MainApp() //SplashPage()
+      ));
 }
 
 //this is where we define the class splashpage and add content
@@ -57,6 +59,13 @@ class SplashPage extends StatelessWidget {
 class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('Welcome to my application')));
+    //scaffold is an element that creates a container
+    //the semantics hint at the way all widgets inside are organized
+    return Scaffold(
+
+        //added in an appbar and drawer element to the existing scaffold
+        appBar: AppBar(),
+        drawer: Drawer(),
+        body: Center(child: Text('Welcome to my application')));
   }
 }
