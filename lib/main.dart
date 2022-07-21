@@ -64,7 +64,22 @@ class MainApp extends StatelessWidget {
     return Scaffold(
 
         //added in an appbar and drawer element to the existing scaffold
-        appBar: AppBar(),
+        //appbar widget
+        appBar: AppBar(
+          //removes shadow
+          elevation: 0,
+          //removes default background
+          backgroundColor: Colors.transparent,
+          title: Center,
+            child: Icon(
+              Icons.terrain,
+              color: mainColor,
+              size: 40
+            )
+          //Sets icon theme to our previous color class
+          iconTheme: IconThemeData(color: mainColor),
+        ),
+        //drawer widget
         drawer: Drawer(),
         body: Center(child: Text('Welcome to my application')));
   }
