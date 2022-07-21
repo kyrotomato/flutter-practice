@@ -80,7 +80,18 @@ class MainApp extends StatelessWidget {
           iconTheme: IconThemeData(color: mainColor),
         ),
         //drawer widget
-        drawer: Drawer(),
+        drawer: Drawer(
+          //appends a child container widget
+          child: Container(
+            //styling
+            //padding all around 30px
+            padding: EdgeInsets.all(30),
+            //color theme to our mainColor class
+            color: mainColor,
+            //aligns at the bottom left of parent I believe
+            alignment: Alignment.bottomLeft,
+          ),
+        ),
         body: Center(child: Text('Welcome to my application')));
   }
 }
