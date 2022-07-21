@@ -27,9 +27,27 @@ class SplashPage extends StatelessWidget {
             alignment: Alignment.center,
             //this child is an icon from google icons. Its a vector img
             child: Icon(Icons.terrain, color: Colors.white, size: 90),
-          )
+          ),
+          Align(
+              //sets alignment to slightly below center
+              alignment: Alignment.bottomCenter,
+              //TODO: figure out how to raise the indicator up more
+              child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white)))
         ],
       ),
     );
+  }
+}
+
+//this is landing page
+
+class MainApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: Text('Welcome to my application')
+      )
+    )
   }
 }
