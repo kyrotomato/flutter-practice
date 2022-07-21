@@ -96,13 +96,14 @@ class MainApp extends StatelessWidget {
         body: Column(
           //this property aligns children to left, vertically, from top to bottom
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [AppHeader()],
+          children: [AppHeader(), AppSearch()],
         ));
   }
 }
 
 //widgets cant be nested when declared
 //-------Widgets----------
+
 // app header widget
 class AppHeader extends StatelessWidget {
   @override
@@ -121,9 +122,76 @@ class AppHeader extends StatelessWidget {
                   height: 50,
                   fit: BoxFit.cover),
             ),
+            //once again using that empty container to create some space
+            SizedBox(
+              width: 20,
+            ),
             Column(
+              //this is the alignment left vertical top to bottom
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [],
+              children: [
+                //text widgets
+                Text('Hello, Thomas',
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold)),
+                Text(
+                  'Good Morning',
+                  style: TextStyle(color: mainColor, fontSize: 12),
+                )
+              ],
+            )
+          ],
+        ));
+  }
+}
+
+//this is a class for the search bar now
+class AppSearch extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.all(30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Discover',
+                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25)),
+            //adding some space
+            SizedBox(height: 20),
+            Row(
+              children: [
+                //Expanded class is A widget that expands a child of a Row, Column, or Flex so that the child fills the available space.
+                Expanded(
+                    child: Container(
+                        height: 50,
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(10)),
+                        //adding a child to the child container with the row class
+                        child: Row(children: [
+                          //a search icon
+                          Icon(Icons.search, color: Colors.grey),
+                          //another sized box for proper spacing
+                          SizedBox(width: 10),
+                          //text
+                          Text('Search', style: TextStyle(color: Colors.grey))
+                        ]))),
+                //container outside the search bar
+                Container(
+                  //left margin 10px
+                  margin: EdgeInsets.only(left: 10),
+                  //width and height
+                  width: 50,
+                  height: 50,
+                  //box styling
+                  decoration: BoxDecoration(
+                      color: mainColor,
+                      borderRadius: BorderRadius.circular(10)),
+                  //tune icon
+                  child: Icon(Icons.tune, color: Colors.white),
+                )
+              ],
             )
           ],
         ));
