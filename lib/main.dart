@@ -24,9 +24,9 @@ class SplashPage extends StatelessWidget {
       //callback function uses Navigator.of that pushed to navigation stack
       //builder context retrieves closest nav in app
       Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => MainApp()));
+          .push(MaterialPageRoute(builder: (context) => MainApp()));
     });
-    
+
     //whats being returned/displayed
     return Container(
       //this sets maincolor to the color we set above
@@ -57,9 +57,6 @@ class SplashPage extends StatelessWidget {
 class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: Text('Welcome to my application')
-      )
-    )
+    return Scaffold(body: Center(child: Text('Welcome to my application')));
   }
 }
