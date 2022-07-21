@@ -46,6 +46,7 @@ class SplashPage extends StatelessWidget {
               //sets alignment to slightly below center
               alignment: Alignment.bottomCenter,
               //TODO: figure out how to raise the indicator up more
+              // I can use the empty container
               child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(Colors.white)))
         ],
@@ -96,7 +97,12 @@ class MainApp extends StatelessWidget {
         body: Column(
           //this property aligns children to left, vertically, from top to bottom
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [AppHeader(), AppSearch()],
+          children: [
+            AppHeader(),
+            AppSearch(),
+            //append appmainlistview and have it take the entire area
+            Expanded(child: AppMainListView()),
+          ],
         ));
   }
 }
@@ -198,52 +204,62 @@ class AppSearch extends StatelessWidget {
   }
 }
 
+//this is a class for the list of items
+class AppMainListView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text('Project List'),
+    );
+  }
+}
+
 //-------models-------
 
-//building the mount model and then creating object with empty string as props
+//building the main model and then creating object with empty string as props
 //im gonna change them some to fit my portfolio projects so I can use this for my personal app later
-class MountModel {
+class mainModel {
   String path;
   String name;
   String link;
   String description;
-  MountModel(
+  mainModel(
       {this.path = '', this.name = '', this.link = '', this.description = ''});
 }
 
 //next we have to create data for the model
 //im gonna put some of my projects in
 
-final List<MountModel> mountItems = [
-  MountModel(
+final List<mainModel> mainItems = [
+  mainModel(
       path:
           'https://github.com/kyrotomato/Patio/blob/main/assets/images/thumbnail.PNG',
       name: 'Patio',
       description:
           'An app used to find local bars in your area based on your zip code as well as tell you the weather for the weekend',
       link: 'https://github.com/kyrotomato/Patio'),
-  MountModel(
+  mainModel(
       path:
           'https://github.com/jared-ruiz/Fantasy-Chat/blob/main/public/assets/fantasy-chat-thumbnail.PNG',
       name: 'Fantasy Chat',
       description:
           'This is a play by post app for tabletop with a dice roller. Play tabletop games with long term persistence and the ability to delete and edit posts!',
       link: 'https://github.com/jared-ruiz/Fantasy-Chat'),
-  MountModel(
+  mainModel(
       path:
           'https://user-images.githubusercontent.com/97704480/159192420-69b4f6c9-c3b4-4a5a-80e0-3431127711c1.png',
       name: 'Weather Dashboard',
       description:
           'This is a weather dashboard app. It gives you the 5 day forecast for your city using a weather API',
       link: 'https://github.com/kyrotomato/weather-dashboard'),
-  MountModel(
+  mainModel(
       path:
           'https://user-images.githubusercontent.com/97704480/180243143-828030f7-bdf9-4c55-970d-3fc4eea044e4.png',
       name: 'Readme Generator',
       description:
           'A generator to create a professional readme using simple inquirer prompts',
       link: 'https://github.com/kyrotomato/readme-generator/'),
-  MountModel(
+  mainModel(
       path:
           'https://raw.githubusercontent.com/JonCurls/current/main/client/src/Assets/Images/thumbnail.PNG',
       name: 'Current',
