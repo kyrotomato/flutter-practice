@@ -16,6 +16,18 @@ void main() {
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //this is the future object that will contain our delay
+    //future.delayed takes two params
+    //duration is the first which has a property of 2
+    //secibd us a callback function
+    Future.delayed(const Duration(seconds: 2), () {
+      //callback function uses Navigator.of that pushed to navigation stack
+      //builder context retrieves closest nav in app
+      Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => MainApp()));
+    });
+    
+    //whats being returned/displayed
     return Container(
       //this sets maincolor to the color we set above
       color: mainColor,
