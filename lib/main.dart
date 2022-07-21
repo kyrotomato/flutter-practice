@@ -83,15 +83,49 @@ class MainApp extends StatelessWidget {
         drawer: Drawer(
           //appends a child container widget
           child: Container(
-            //styling
-            //padding all around 30px
-            padding: EdgeInsets.all(30),
-            //color theme to our mainColor class
-            color: mainColor,
-            //aligns at the bottom left of parent I believe
-            alignment: Alignment.bottomLeft,
-          ),
+              //styling
+              //padding all around 30px
+              padding: EdgeInsets.all(30),
+              //color theme to our mainColor class
+              color: mainColor,
+              //aligns at the bottom left of parent I believe
+              alignment: Alignment.bottomLeft,
+              //adding an icon to the appbar
+              child: Icon(Icons.terrain, color: Colors.white, size: 80)),
         ),
-        body: Center(child: Text('Welcome to my application')));
+        body: Column(
+          //this property aligns children to left, vertically, from top to bottom
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [AppHeader()],
+        ));
+  }
+}
+
+//widgets cant be nested when declared
+//-------Widgets----------
+// app header widget
+class AppHeader extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        //adds padding to only the specified areas
+        padding: EdgeInsets.only(left: 30, top: 30, right: 30),
+        //child elements
+        child: Row(
+          children: [
+            //widgets placed here
+            ClipOval(
+              child: Image.network(
+                  'https://kyrotomato.github.io/portfolio-react/static/media/me-placeholder.aa132bbadad58e212141.jpg', // replace if you want
+                  width: 50,
+                  height: 50,
+                  fit: BoxFit.cover),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [],
+            )
+          ],
+        ));
   }
 }
