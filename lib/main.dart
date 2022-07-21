@@ -70,12 +70,12 @@ class MainApp extends StatelessWidget {
           elevation: 0,
           //removes default background
           backgroundColor: Colors.transparent,
-          title: Center,
-            child: Icon(
-              Icons.terrain,
-              color: mainColor,
-              size: 40
-            )
+          //this centers title
+          title: Center(
+              //appends terrain icon and sets color and size
+              child: Icon(Icons.terrain, color: mainColor, size: 40)),
+          //this is just a widget thrown in to center that icon. basically added on the right and made the same size as appbar button
+          actions: [SizedBox(width: 40, height: 40)],
           //Sets icon theme to our previous color class
           iconTheme: IconThemeData(color: mainColor),
         ),
