@@ -211,10 +211,33 @@ class AppMainListView extends StatelessWidget {
     return Container(
         height: 150,
         child: ListView.builder(
+            // adds horizontal scroll
             scrollDirection: Axis.horizontal,
+            //grabs item count from mainItems
             itemCount: mainItems.length,
+            //builds list item widgets as theyre scrolled into view. see scroll direction above ^
             itemBuilder: (context, index) {
+              //this fetches current item from the callback itembuilder to the index
               MainModel currentItem = mainItems[index];
+
+              return Container(
+                  //bottom left alignment
+                  alignment: Alignment.bottomLeft,
+                  //20px padding all around
+                  padding: EdgeInsets.all(20),
+                  //10px margin all around
+                  margin: EdgeInsets.all(10),
+                  //150px width
+                  width: 150,
+                  //background Image pulled from the currentItem path prop
+                  decoration: BoxDecoration(
+                      //rounded corners on the border
+                      borderRadius: BorderRadius.circular(15),
+                      //image used
+                      image: DecorationImage(
+                          image: NetworkImage(currentItem.path),
+                          //image fitment covers container
+                          fit: BoxFit.cover)));
             }));
   }
 }
